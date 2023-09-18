@@ -17,7 +17,20 @@ public class SubSeq {
         subseq(p + ch, up.substring(1));
         subseq(p, up.substring(1));
     }
+    
+    static ArrayList<String> ans = new ArrayList<>();    // A static variable 
+    static ArrayList<String> subSeqList(String p, String up) {
+        if (up.isEmpty()) {
+            ans.add(p);    // add String p to ans ArrayList
+            return ans;    // return ans
+        }
 
+        char ch = up.charAt(0);
+        subSeqList(p + ch, up.substring(1));
+        subSeqList(p, up.substring(1));
+        return ans;
+    }
+    
     static ArrayList<String> subseqRet(String p, String up) {
         if (up.isEmpty()) {
             ArrayList<String> list = new ArrayList<>();
